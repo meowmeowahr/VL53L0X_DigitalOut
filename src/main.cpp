@@ -11,11 +11,6 @@ void setup() {
 
   Serial.begin(DEBUG_BAUD);
 
-  // wait until serial port
-  while (! Serial) {
-    delay(1);
-  }
-
   Serial.println(F("VL53L0X AutoLight Controller"));
   if (!sensor.begin()) {
     Serial.println(F("Failed to boot VL53L0X"));
@@ -26,7 +21,7 @@ void setup() {
   sensor.startRangeContinuous(); // continuous reading mode
 }
 
-unsigned int reading = 819;
+unsigned int reading = 8190;
 
 void loop() {
    if (sensor.isRangeComplete()) { // is the reading ready?
